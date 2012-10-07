@@ -17,7 +17,7 @@ quiz_index = nil
 CSV.foreach('grades.csv', encoding: "UTF-8") do |row|
   if skip_first
     login_index = row.index "inst login"
-    quiz_index = row.index("Quiz 1")
+    quiz_index = row.index "Quiz 1"
     skip_first = false
     next
   end
