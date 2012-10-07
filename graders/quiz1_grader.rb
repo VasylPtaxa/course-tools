@@ -12,17 +12,18 @@ File.open("quiz1_roster").each do |line|
   roster[line[0..7]] = line
 end
 
-index = nil
-
+login_index = nil
+quiz_index = nil
 CSV.foreach('grades.csv', encoding: "UTF-8") do |row|
   if skip_first
-    index = row.index("Quiz 1")
+    login_index = row.index "inst login"
+    quiz_index = row.index("Quiz 1")
     skip_first = false
     next
   end
-  login = row[4] 
+  login = row[login_index]
   if roster.has_key? login
-    score = row[index]
+    score = row[quiz_index]
     roster[login] = roster[login][0..-2] << score << "\n"
   end
 end

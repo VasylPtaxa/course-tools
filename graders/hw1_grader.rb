@@ -16,14 +16,18 @@ for i in 1..7 do
     roster[line[0..7]] = line
   end
   
+  login_index = nil
+  homework_index = nil
   CSV.foreach('grades.csv', :encoding => "UTF-8") do |row|
     if skip_first
+      login_index = row.index "inst login"
+      homework_index = row.index "HW1 Part #{i}"
       skip_first = false
       next
     end
-    login = row[5] 
+    login = row[login_index] 
     if roster.has_key? login
-      roster[login] = roster[login][0..-2] << row[5+i] << "\n"
+      roster[login] = roster[login][0..-2] << row[homework_index] << "\n"
     end
   end
   out = File.open("HW1_part#{i}", 'wb')
