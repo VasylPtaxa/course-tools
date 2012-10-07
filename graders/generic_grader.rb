@@ -16,13 +16,13 @@ File.open("#{gl_name}_roster").each do |line|
   roster[line[0..7]] = line
 end
 
-index = nil
+name_index = nil
+login_index = nil
 
 CSV.foreach('grades.csv', encoding: "UTF-8") do |row|
   if skip_first
-    index = row.index(csv_name)
-    puts index
-    puts "index"
+    login_index = row.index "inst login"
+    name_index = row.index csv_name
     skip_first = false
     next
   end
@@ -31,6 +31,9 @@ CSV.foreach('grades.csv', encoding: "UTF-8") do |row|
   if roster.has_key? login
     puts index
     score = row[index]
+    if score.nil?
+      score = "0"
+    end
     roster[login] = roster[login][0..-2] << score << "\n"
   end
 end

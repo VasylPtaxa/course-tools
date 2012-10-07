@@ -27,7 +27,11 @@ for i in 1..7 do
     end
     login = row[login_index] 
     if roster.has_key? login
-      roster[login] = roster[login][0..-2] << row[homework_index] << "\n"
+      score = row[homework_index]
+      if score.nil?
+        score = "0"
+      end
+      roster[login] = roster[login][0..-2] << score << "\n"
     end
   end
   out = File.open("HW1_part#{i}", 'wb')

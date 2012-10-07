@@ -24,6 +24,9 @@ CSV.foreach('grades.csv', encoding: "UTF-8") do |row|
   login = row[login_index]
   if roster.has_key? login
     score = row[quiz_index]
+    if score.nil?
+      score = "0"
+    end
     roster[login] = roster[login][0..-2] << score << "\n"
   end
 end
