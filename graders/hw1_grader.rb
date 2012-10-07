@@ -16,7 +16,7 @@ for i in 1..7 do
     roster[line[0..7]] = line
   end
   
-  CSV.foreach('grades.csv', encoding: "UTF-8") do |row|
+  CSV.foreach('grades.csv', :encoding => "UTF-8") do |row|
     if skip_first
       skip_first = false
       next

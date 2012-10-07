@@ -1,1 +1,5 @@
 Useful tools for administering the course.
+
+
+useful tips:
+Every time more people add their logins or you change params, run "init-grading -i".
