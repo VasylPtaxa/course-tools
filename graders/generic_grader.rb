@@ -6,7 +6,7 @@ gl_name = gets
 puts "Enter spreadsheet name"
 csv_name = gets
 # make the roster
-`make-roster quiz1 > quiz1_roster`
+`make-roster #{gl_name} > #{csv_name}_roster`
 
 # Do grade entering
 skip_first = true
