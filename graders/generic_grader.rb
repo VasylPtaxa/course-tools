@@ -17,7 +17,7 @@ def grade(gl_name, csv_name)
   login_index = nil
   iter_index = nil
 
-  CSV.foreach('grades.csv', encoding: "UTF-8") do |row|
+  CSV.foreach('grades.csv', encoding => "UTF-8") do |row|
     if skip_first
       login_index = row.index "inst login"
       iter_index = row.index "#{csv_name}"
