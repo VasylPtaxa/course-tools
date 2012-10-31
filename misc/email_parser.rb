@@ -2,6 +2,8 @@
 require 'csv'
 
 # Parse a CSV and do a bit of formatting of customer feedback
+# Write <group num>.txt with formatted feedback
+# NOTE: Does not work with groups that have multiple feedback rows
 
 def main 
   # Do grade entering
