@@ -22,6 +22,9 @@ Below is the feedback you received from your customer:" << "\n\n"
         if header == "emails"
           tmp = val.split
           val = tmp.join(",")
+          cur << "Customer Feedback, Iteration 2\n"
+          cur << val << "\n\n"
+          next
         end
         if header == "Which project is this feedback for?"
           next
