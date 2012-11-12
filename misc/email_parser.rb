@@ -14,15 +14,20 @@ def main
       skip_first = false
       next
     else
-      cur = File.open("#{row[5].to_s}.txt", 'wb')
+      cur = File.open("#{row[5].to_s}.txt", 'a')
       cur << "Hi,
 
 Below is the feedback you received from your customer:" << "\n\n"
-      headers.each_index do 
-        headers.zip(row).each do |header, val|
-          cur <<  header << "\n"
-          cur << val << "\n\n"
+      headers.zip(row).each do |header, val|
+        if header == "emails"
+          tmp = val.split
+          val = tmp.join(",")
         end
+        if header == "Which project is this feedback for?"
+          next
+        end
+        cur <<  header << "\n"
+        cur << val << "\n\n"
       end
       cur.close
     end
