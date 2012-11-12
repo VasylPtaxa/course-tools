@@ -6,7 +6,6 @@ require 'csv'
 # NOTE: Does not work with groups that have multiple feedback rows
 
 def main 
-  # Do grade entering
   skip_first = true
   headers = []
   CSV.foreach('to_email.csv', :encoding => "UTF-8") do |row|
@@ -20,9 +19,10 @@ def main
 
 Below is the feedback you received from your customer:" << "\n\n"
       headers.each_index do 
-      headers.zip(row).each do |header, val|
-        cur <<  header << "\n"
-        cur << val << "\n\n"
+        headers.zip(row).each do |header, val|
+          cur <<  header << "\n"
+          cur << val << "\n\n"
+        end
       end
       cur.close
     end
