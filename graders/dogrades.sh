@@ -38,3 +38,18 @@ enter-grades -f HW5_part1
 enter-grades -f HW5_part2
 # Homeworks are now graded
 cd ../../quizzes
+ruby generic_grader.rb "quiz1" "Quiz 1"
+ruby generic_grader.rb "quiz2" "Quiz 2"
+ruby generic_grader.rb "quiz3" "Quiz 3"
+ruby generic_grader.rb "quiz4" "Quiz 4"
+# quizzes are now graded
+cd ../iters
+ruby generic_grader.rb "iter0-1" "I 0-1" 
+ruby generic_grader.rb "iter0-2" "I 0-2"
+ruby generic_grader.rb "iter0-3" "I 0-3"
+ruby generic_grader.rb "iter1" "I 1"
+ruby generic_grader.rb "iter2" "I 2 (Final)"
+# ruby generic_grader.rb "iter3" "I 3 (Final)" 
+# ruby generic_grader.rb "iter4" "I 4 (Final)" 
+# Iterations have now been graded
+cd ../
